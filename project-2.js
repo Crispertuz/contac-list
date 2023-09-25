@@ -1,3 +1,4 @@
+// Lista de contactos con datos predefinidos
 const listaContactos = [
     {
       id: 1,
@@ -36,7 +37,8 @@ const listaContactos = [
       ]
     }
   ];
-
+  
+  // Función para añadir un nuevo contacto a la lista
   function agregarContacto(id, nombres, apellidos, telefono, ciudad, dirección) {
     const nuevoContacto = {
       id,
@@ -53,6 +55,7 @@ const listaContactos = [
     listaContactos.push(nuevoContacto);
   }
   
+  // Función para borrar un contacto existente de la lista
   function borrarContacto(id) {
     const indice = listaContactos.findIndex(contacto => contacto.id === id);
     if (indice !== -1) {
@@ -60,6 +63,16 @@ const listaContactos = [
     }
   }
   
+  // Función para actualizar un contacto existente en la lista
+  function actualizarContacto(id, nuevosDatos) {
+    const contactoExistente = listaContactos.find(contacto => contacto.id === id);
+    if (contactoExistente) {
+      // Actualizar los campos especificados en nuevosDatos
+      Object.assign(contactoExistente, nuevosDatos);
+    }
+  }
+  
+  // Función para imprimir en consola los contactos presentes en la lista
   function imprimirContactos() {
     console.log("Lista de contactos:");
     listaContactos.forEach(contacto => {
@@ -74,6 +87,18 @@ const listaContactos = [
       console.log("----------");
     });
   }
-  agregarContacto(4, "Ana", "Torres", "777-888-9999", "Ciudad D", "Calle 4567");
-  borrarContacto(3);
+  
+  // Ejemplo de uso
+  agregarContacto(4, "Ana", "Torres", "777-888-9999", "Ciudad D", "Calle 456");
+  actualizarContacto(3, {
+    nombres: "Carlos",
+    telefono: "555-987-6543",
+    ubicaciones: [
+      {
+        ciudad: "Ciudad E",
+        dirección: "Avenida 789"
+      }
+    ]
+  });
+  borrarContacto(1);
   imprimirContactos();
