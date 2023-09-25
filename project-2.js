@@ -74,6 +74,6 @@ const listaContactos = [
       console.log("----------");
     });
   }
-  agregarContacto(4, "Ana", "Torres", "777-888-9999", "Ciudad D", "Calle 456");
+  agregarContacto(4, "Ana", "Torres", "777-888-9999", "Ciudad D", "Calle 4567");
   borrarContacto(3);
   imprimirContactos();
